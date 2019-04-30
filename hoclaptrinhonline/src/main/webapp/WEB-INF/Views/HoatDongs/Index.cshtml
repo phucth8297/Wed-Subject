@@ -1,0 +1,79 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@model X.PagedList.IPagedList<Hospital.Web.EfModels.HoatDong>
+@using Hospital.Web.Controllers
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Hoạt động";
+}
+@section css {
+    <link href="~/css/PagedList.css" rel="stylesheet" />
+
+
+}
+<div class="breadvroumb_area">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h1>Hoạt Động</h1>
+                <div class="breadcroumb_link">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 ">
+            @foreach (var hoatdong in Model)
+            {
+                <div class="col-md-6 Box_HoatDong">
+                    <div class="col col_Detail">
+                        <div class="blog_img">
+                            <a class="Link_TinTuc" asp-action="@nameof(HoatDongsController.Details)"
+                               asp-controller="@nameof(HoatDongsController).Replace("Controller", "")"
+                               asp-route-id="@hoatdong.Id"
+                               target="_blank">
+                                <img class="img_index" src="@Url.Action("GetImage", "ImageBrowser", new { id = hoatdong.HinhAnhMinhHoa })" alt="" class="img_TinTuc">
+                            </a>
+                            <div class="row">
+                                <div class="col-md-12 blog_meta">
+                                    <a class="date" asp-action="@nameof(HoatDongsController.Details)"
+                                       asp-controller="@nameof(HoatDongsController).Replace("Controller","")"
+                                       asp-route-id="@hoatdong.Id"
+                                       target="_blank">@hoatdong.NgayTao?.ToString("dd/MM/yy HH:mm:ss")</a>
+                                </div>
+                                <h2 class="col-md-12">
+                                    <a asp-action="@nameof(HoatDongsController.Details)"
+                                       asp-controller="@nameof(HoatDongsController).Replace("Controller","")"
+                                       class="Details_TieuDe"
+                                       asp-route-id="@hoatdong.Id"
+                                       target="_blank">@hoatdong.TieuDe</a>
+                                </h2>
+                            </div>
+                            <p asp-action="@nameof(HoatDongsController.Details)"
+                               asp-controller="@nameof(HoatDongsController).Replace("Controller","")"
+                               class="GioiThieu_Detail"
+                               asp-route-id="@hoatdong.Id"
+                               target="_blank">
+                                @hoatdong.GioiThieu
+                            </p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <a class="button_XT" asp-action="@nameof(HoatDongsController.Details)"
+                       asp-controller="@nameof(HoatDongsController).Replace("Controller","")"
+                       asp-route-id="@hoatdong.Id"
+                       target="_blank">
+                        Xem thêm
+                    </a>
+                </div>
+            }
+            <div class="col-md-12">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </div>
+
+        </div>
+    </div>
+</div>

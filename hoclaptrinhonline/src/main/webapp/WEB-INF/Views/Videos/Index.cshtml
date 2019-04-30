@@ -1,0 +1,56 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+
+@model X.PagedList.IPagedList<Hospital.Web.EfModels.Video>
+@using Hospital.Web.Controllers
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Video";
+}
+@section css {
+    <link href="~/css/PagedList.css" rel="stylesheet" />
+}
+
+<div class="breadvroumb_area">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h1>Video nổi bật</h1>                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcroumb Area End-->
+<!-- Blog page Area Start-->
+<div class="blog_area">
+    <div class="container">
+        <p> @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</p>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3">
+
+                    <a asp-action="@nameof(VideosController.Details)"
+                       asp-controller="@nameof(VideosController).Replace("Controller","")"
+                       asp-route-id="@item.Id"
+                       target="_blank" class="single_latest_news">
+                        <span class="l_img">
+                            <img src="https://img.youtube.com/vi/@item.HinhAnh/mqdefault.jpg" />
+                        </span>
+                    </a>
+                </div>
+                <div class="col-lg-8">
+                    <a style="font-size: 25px;" asp-action="@nameof(VideosController.Details)"
+                       asp-controller="@nameof(VideosController).Replace("Controller","")"
+                       asp-route-id="@item.Id"
+                       target="_blank">@item.TieuDe</a>
+
+                    <p>@item.GioiThieu</p>
+                </div>
+            }
+        </div>
+        <p> @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</p>
+
+    </div>
+</div>
+<!-- Blog page Area End-->

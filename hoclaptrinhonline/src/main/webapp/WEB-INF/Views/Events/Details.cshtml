@@ -1,0 +1,46 @@
+﻿@model Hospital.Web.EfModels.Event
+@using Hospital.Web.Controllers
+@{
+    ViewData["Title"] = "Chi tiết hoạt động";
+}
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+
+    <link href="~/css/about.css" rel="stylesheet" />
+    <link href="~/css/material-design-iconic-font.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+
+}
+<div class="breadvroumb_area">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h1>@Model.TieuDe</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class=" about_page">
+    <div class="container">
+        @if (!string.IsNullOrWhiteSpace(Model.GioiThieu))
+        {
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="about_content">
+                        <p style="font-weight:bold">@Html.Raw(Model.GioiThieu)</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section scripts {
+
+}

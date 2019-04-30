@@ -1,0 +1,66 @@
+﻿@model List<Hospital.Web.Controllers.LichKhamVm>
+@using Hospital.Web.EfModels
+
+@{
+    ViewBag.Title = "Lịch khám bệnh";
+}
+<style>
+    table, th, td {
+        border: 1px solid #478AF8;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top20px;
+    }
+
+    th, td {
+        width: 200px;
+    }
+
+    th {
+        background-color: #478AF8;
+        color: white;
+    }
+</style>
+<div class="breadvroumb_area">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h1>Lịch khám bệnh</h1>
+                <div class="breadcroumb_link">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <table class="col-md-12">
+            @foreach (var item_PK in Model)
+            {
+                if (item_PK.Loai == "TieuDe")
+                {
+                    <tr>
+                        <th>Phòng khám</th>
+                        <th>Thứ</th>
+                        <th>Sáng</th>
+                        <th>Chiều</th>
+                    </tr>
+                }
+                else
+                {
+
+                    <tr>
+                        @if (item_PK.Loai == "PhongKham")
+                        {
+                            <td rowspan="6" style="height: 280px;">@item_PK.PhongKham</td>
+                        }
+                        <td>@item_PK.Ngay</td>
+                        <td>@item_PK.Sang</td>
+                        <td>@item_PK.Chieu</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

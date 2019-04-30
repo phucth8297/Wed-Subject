@@ -1,0 +1,56 @@
+﻿@model Hospital.Web.EfModels.KhoaPhong
+@using Hospital.Web.Controllers
+@using Hospital.Web.EfModels
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Phòng ban";
+}
+@section css {
+    <link href="~/css/DichVuKhac.css" rel="stylesheet" />
+}
+<div class="breadvroumb_area">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h1>@Model.TenKhoaPhong</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7">
+            @if (!string.IsNullOrWhiteSpace(Model.GioiThieu))
+            {
+
+                <div class="about_content">
+                    <p style="font-weight:bold">@Html.Raw(Model.GioiThieu)</p>
+                </div>
+                <div>
+                    @Html.Raw(Model.NoiDung)
+                </div>
+            }
+        </div>
+        <div class="col-lg-1">
+            </div>
+            <div class="col-lg-4">
+                <h1 style="border-bottom: 1px solid #8D8D8D; width:100%; float: left;">
+                    Câu hỏi khác
+                </h1>
+                <ul>
+                    @foreach (var dichVu in (ViewBag.listkhoaPhongKhac as List<KhoaPhong>))
+                    {
+                        <li>
+                            <a asp-action="@nameof(KhoaPhongsController.Details)"
+                               asp-controller="@nameof(KhoaPhongsController).Replace("Controller","")"
+                               asp-route-id="@dichVu.Id">
+                                <i class="zmdi zmdi-badge-check icon"></i> <span>@dichVu.TenKhoaPhong</span>
+                            </a>
+                        </li>
+
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>

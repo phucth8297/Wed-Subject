@@ -1,0 +1,196 @@
+﻿@using Hospital.Web.Controllers
+@using Hospital.Web.EfModels
+@model HenKhamBenh
+
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Đặt lịch khám";
+}
+@section css {
+    <style>
+        .k-radio:checked + .k-radio-label:after {
+            top: 2px;
+            left: 2px;
+        }
+    </style>
+}
+
+
+<div class="breadvroumb_area">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h1>Đặt lịch khám</h1>
+                <div class="breadcroumb_link">
+                    <a asp-action="@nameof(HomesController.Index)"
+                       asp-controller="@nameof(HomesController).Replace("Controller","")">Trang chủ</a>/ Đặt lịch khám
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact_page_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-5 offset-md-1 order-md-8">
+                <div class="contact_inf_area">
+                    <div class="single_contact_inf">
+                        <div class="contact_icon"><img src="~/images/img/contact_icon1.png" alt=""></div>
+                        <div class="ccontact_inf_content">
+                            <h5>Đương dây nóng</h5>
+                            <span>Gọi miễn phí 24/7</span>
+                            <a href="#">(086) 466-6666</a>
+                        </div>
+                    </div>
+                    <div class="single_contact_inf">
+                        <div class="contact_icon"><img src="~/images/img/contact_icon2.png" alt=""></div>
+                        <div class="ccontact_inf_content">
+                            <h5>Đương dây nóng</h5>
+                            <a href="#">(086) 466-6666</a>
+                        </div>
+                    </div>
+                    <div class="single_contact_inf">
+                        <div class="contact_icon"><img src="~/images/img/contact_icon3.png" alt=""></div>
+                        <div class="ccontact_inf_content">
+                            <h5>Đương dây nóng</h5>
+                            <a href="#">(086) 466-6666</a>
+                        </div>
+                    </div>
+                    <div class="single_contact_inf">
+                        <div class="contact_icon"><img src="~/images/img/contact_icon4.png" alt=""></div>
+                        <div class="ccontact_inf_content">
+                            <h5>Email</h5>
+                            <a href="#">qdymd@gmail.com</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6">
+                <form asp-action="@nameof(HenKhamBenhsController.Index)"
+                      method="post"
+                      asp-controller="@nameof(HenKhamBenhsController).Replace("Controller","")" class="contact_form2">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label asp-for="HoVaTen" class="control-label">Họ và tên</label>
+                            <input asp-for="HoVaTen" class="form-control" style="font-size:15px;"/>
+                            <span asp-validation-for="HoVaTen" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="DiaChi" class="control-label">Địa chỉ</label>
+                            <input asp-for="DiaChi" class="form-control" style="font-size:15px;" />
+                            <span asp-validation-for="DiaChi" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="SoDienThoaiDiDong" class="control-label">Số điện thoại</label>
+                            <input asp-for="SoDienThoaiDiDong" class="form-control" style="font-size:15px;"/>
+                            <span asp-validation-for="SoDienThoaiDiDong" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="DiaChiEmail" class="control-label">Địa chỉ</label>
+                            <input asp-for="DiaChiEmail" class="form-control" style="font-size:15px;"/>
+                            <span asp-validation-for="DiaChiEmail" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <h3>Giới tính</h3>
+                            @(Html.Kendo().RadioButton().Name("nam").Checked(true).HtmlAttributes(new { @name = "gioitinh" }).Label("Nam"))
+                            @(Html.Kendo().RadioButton().Name("nu").HtmlAttributes(new { @name = "gioitinh" }).Label("Nữ"))
+                        </div>
+                        <div class="col-lg-6">
+                            <h3>Năm sinh</h3>
+                            @(Html.Kendo().DropDownList().Name(nameof(HenKhamBenh.FkNamSinh))
+                                                                .DataTextField("Text")
+                                                                .DataValueField("Value")
+                                                                .Events(e => e.Change("change"))
+                                                                .BindTo((List<SelectListItem>)ViewBag.listNamSinh)
+                                                                .HtmlAttributes(new { style = "width: 100%" })
+
+                            )
+                        </div>
+                        <div class="col-lg-12">
+                            <h3>Bác sĩ</h3>
+                            @(Html.Kendo().DropDownList()
+                                                               .Name(nameof(HenKhamBenh.FkBacSi))
+                                                                .DataTextField("Text")
+                                                                .DataValueField("Value")
+                                                                .Events(e => e.Change("change"))
+                                                                .BindTo((List<SelectListItem>)ViewBag.listBacSi)
+                                                                .OptionLabel("Vui lòng chọn Bác sỹ")
+                                                                .HtmlAttributes(new { style = "width: 100%" })
+                            )
+                        </div>
+
+                        <div class="col-lg-12">
+                            <h3>Chuyên khoa</h3>
+                            @(Html.Kendo().DropDownList()
+                                                       .Name(nameof(HenKhamBenh.FkChuyenKhoa))
+                                                        .DataTextField("Text")
+                                                        .DataValueField("Value")
+                                                        .Events(e => e.Change("change"))
+                                                        .BindTo((List<SelectListItem>)ViewBag.listPhongKham)
+                                                        .OptionLabel("Vui lòng chọn phòng khám")
+                                                        .HtmlAttributes(new { style = "width: 100%" })
+                            )
+
+                        </div>
+
+                        <div class="col-lg-6">
+                            <h3>Ngày khám</h3>
+                            @(Html.Kendo().DatePicker()
+                                                        .Name(nameof(HenKhamBenh.NgayHen))
+                                                        .Value(DateTime.Now)
+                                                        .HtmlAttributes(new { style = "width: 100%", title = "ngaykham" })
+                                                        .DateInput()
+                            )
+                        </div>
+
+
+                        <div class="col-lg-6">
+                            <h3>Giờ khám</h3>
+                            @(Html.Kendo().DropDownList().Name(nameof(HenKhamBenh.FkGioHen))
+                                                        .DataTextField("Text")
+                                                        .DataValueField("Value")
+                                                        .Events(e => e.Change("change"))
+                                                        .BindTo((List<SelectListItem>)ViewBag.listGioKham)
+                                                        .OptionLabel("Vui lòng chọn giờ khám")
+
+
+                            )
+                        </div>
+
+                        <div class="col-lg-12">
+                            <h3>Ghi chú</h3>
+                            <textarea placeholder="Nội dung ghi chú"></textarea>
+                        </div>
+                        <div class="col-lg-12" style="margin-left:50%">
+                            <button type="submit" class="custom_btn" value="Create">Gửi</button>
+                            <button type="submit" class="custom_btn">Hủy</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts {
+    <script>
+        function change() {
+            var value = $("#color").val();
+            $("#cap")
+                .toggleClass("black-cap", value == 1)
+                .toggleClass("orange-cap", value == 2)
+                .toggleClass("grey-cap", value == 3);
+        };
+
+
+    </script>
+
+
+}

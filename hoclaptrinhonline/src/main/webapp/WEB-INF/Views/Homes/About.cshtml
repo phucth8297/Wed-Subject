@@ -1,0 +1,34 @@
+﻿@model Hospital.Web.EfModels.GioiThieuChiTiet
+@using Hospital.Web.Controllers
+
+@{
+    ViewBag.Title = "Giới thiệu";
+}
+
+<div class="breadvroumb_area">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h1>@Model.Ten</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class=" about_page">
+    <div class="container">
+        @if (!string.IsNullOrWhiteSpace(Model.GioiThieu))
+        {
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="about_content">
+                        <p style="font-weight:bold">@Html.Raw(Model.GioiThieu)</p>
+                    </div>
+                </div>
+            </div>
+        }
+        <div>
+            @Html.Raw(Model.NoiDung)
+            <br />
+        </div>
+    </div>
+</div>

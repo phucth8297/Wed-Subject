@@ -1,0 +1,59 @@
+﻿@model Hospital.Web.EfModels.Video
+@using Hospital.Web.Controllers
+@{
+    ViewBag.Title = "Chi tiết video";
+}
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css {
+
+    <link href="~/css/about.css" rel="stylesheet" />
+    <link href="~/css/material-design-iconic-font.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+
+}
+
+<div class="breadvroumb_area">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h1>@Model.TieuDe</h1>               
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="blog_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog_detaisl_area">
+                    <div class="blog_full_content">
+                        <h4>@Model.TieuDe</h4>
+                        <div class="blog_meta">
+                            <h3><b>@Model.NgayTao.ToString("dd/MM/yyyy HH:mm:ss") | Ngày cập nhật: @Model.NgaySua | Lượt xem: @Model.LuotXem</b></h3>
+                            
+                        </div>
+                        
+                        <iframe width="500" height="350" src="https://www.youtube.com/embed/@Model.DuongDanFile" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                          
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section scripts {
+
+}
+
