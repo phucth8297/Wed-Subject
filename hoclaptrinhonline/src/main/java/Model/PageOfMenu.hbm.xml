@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 5, 2019 9:45:08 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.PageOfMenu" table="PageOfMenu" schema="dbo" catalog="CD_WEB" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="menuLeft" class="Model.MenuLeft" fetch="select">
+            <column name="FK_Menu" />
+        </many-to-one>
+        <property name="namePage" type="serializable">
+            <column name="NamePage" />
+        </property>
+        <property name="active" type="java.lang.Boolean">
+            <column name="Active" />
+        </property>
+    </class>
+</hibernate-mapping>

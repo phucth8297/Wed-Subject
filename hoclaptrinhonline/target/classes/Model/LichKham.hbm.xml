@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 5, 2019 9:45:08 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.LichKham" table="LichKham" schema="dbo" catalog="CD_WEB" optimistic-lock="version">
+        <composite-id name="id" class="Model.LichKhamId">
+            <key-property name="fkLichNgay" type="int">
+                <column name="FK_LichNgay" />
+            </key-property>
+            <key-property name="fkPhongKham" type="int">
+                <column name="FK_PhongKham" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="lichNgay" class="Model.LichNgay" update="false" insert="false" fetch="select">
+            <column name="FK_LichNgay" not-null="true" />
+        </many-to-one>
+        <many-to-one name="phongKham" class="Model.PhongKham" update="false" insert="false" fetch="select">
+            <column name="FK_PhongKham" not-null="true" />
+        </many-to-one>
+        <property name="sang" type="serializable">
+            <column name="Sang" />
+        </property>
+        <property name="chieu" type="serializable">
+            <column name="Chieu" />
+        </property>
+    </class>
+</hibernate-mapping>

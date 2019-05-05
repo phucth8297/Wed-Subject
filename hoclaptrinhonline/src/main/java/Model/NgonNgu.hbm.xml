@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 5, 2019 9:45:08 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.NgonNgu" table="NgonNgu" schema="dbo" catalog="CD_WEB" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="tenNgonNgu" type="serializable">
+            <column name="TenNgonNgu" />
+        </property>
+        <property name="yahoo" type="serializable">
+            <column name="yahoo" />
+        </property>
+        <property name="skype" type="serializable">
+            <column name="skype" />
+        </property>
+        <property name="tenBenhVien" type="serializable">
+            <column name="TenBenhVien" />
+        </property>
+        <property name="diaChi" type="serializable">
+            <column name="DiaChi" />
+        </property>
+        <property name="dienThoai" type="serializable">
+            <column name="DienThoai" />
+        </property>
+        <property name="email" type="serializable">
+            <column name="Email" />
+        </property>
+        <property name="headDangKy" type="serializable">
+            <column name="Head_DangKy" />
+        </property>
+        <property name="headDangNhap" type="serializable">
+            <column name="Head_DangNhap" />
+        </property>
+        <property name="headSoDo" type="serializable">
+            <column name="Head_SoDo" />
+        </property>
+        <property name="flat" type="serializable">
+            <column name="Flat" />
+        </property>
+        <property name="headButton" type="serializable">
+            <column name="Head_Button" />
+        </property>
+        <property name="pageTitle" type="serializable">
+            <column name="PageTitle" />
+        </property>
+        <property name="sxemTiep" type="serializable">
+            <column name="sXemTiep" />
+        </property>
+        <property name="stinMoiNhat" type="serializable">
+            <column name="sTinMoiNhat" />
+        </property>
+        <property name="slienHeKhachHang" type="serializable">
+            <column name="sLienHeKhachHang" />
+        </property>
+        <property name="sten" type="serializable">
+            <column name="sTen" />
+        </property>
+        <property name="sdienThoai" type="serializable">
+            <column name="sDienThoai" />
+        </property>
+        <property name="sdiaChi" type="serializable">
+            <column name="sDiaChi" />
+        </property>
+        <property name="snoiDung" type="serializable">
+            <column name="sNoiDung" />
+        </property>
+        <property name="smaBaoVe" type="serializable">
+            <column name="sMaBaoVe" />
+        </property>
+        <property name="sgui" type="serializable">
+            <column name="sGui" />
+        </property>
+        <property name="shuy" type="serializable">
+            <column name="sHuy" />
+        </property>
+        <property name="shoTro" type="serializable">
+            <column name="sHoTro" />
+        </property>
+        <property name="ssuKien" type="serializable">
+            <column name="sSuKien" />
+        </property>
+        <property name="sguiCauHoi" type="serializable">
+            <column name="sGuiCauHoi" />
+        </property>
+        <property name="scauHoi" type="serializable">
+            <column name="sCauHoi" />
+        </property>
+        <property name="scauTraLoi" type="serializable">
+            <column name="sCauTraLoi" />
+        </property>
+        <property name="scauHoiKhac" type="serializable">
+            <column name="sCauHoiKhac" />
+        </property>
+        <property name="stinTucKhac" type="serializable">
+            <column name="sTinTucKhac" />
+        </property>
+        <property name="sdatLichKham" type="serializable">
+            <column name="sDatLichKham" />
+        </property>
+        <property name="keyWord" type="serializable">
+            <column name="KeyWord" />
+        </property>
+        <property name="description" type="serializable">
+            <column name="Description" />
+        </property>
+        <property name="tieuDeLichKham" type="serializable">
+            <column name="TieuDeLichKham" />
+        </property>
+        <property name="sang" type="serializable">
+            <column name="Sang" />
+        </property>
+        <property name="chieu" type="serializable">
+            <column name="Chieu" />
+        </property>
+        <property name="tieuDeNgay" type="serializable">
+            <column name="TieuDeNgay" />
+        </property>
+        <set name="menus" table="Menu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" not-null="true" />
+            </key>
+            <one-to-many class="Model.Menu" />
+        </set>
+        <set name="loaiCauHois" table="LoaiCauHoi" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.LoaiCauHoi" />
+        </set>
+        <set name="phongKhams" table="PhongKham" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.PhongKham" />
+        </set>
+        <set name="gioiThieuChiTiets" table="GioiThieuChiTiet" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" not-null="true" />
+            </key>
+            <one-to-many class="Model.GioiThieuChiTiet" />
+        </set>
+        <set name="loaiTuyenDungs" table="LoaiTuyenDung" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.LoaiTuyenDung" />
+        </set>
+        <set name="tinTucs" table="TinTuc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.TinTuc" />
+        </set>
+        <set name="khoaPhongs" table="KhoaPhong" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.KhoaPhong" />
+        </set>
+        <set name="tuyenDungThongBaos" table="TuyenDungThongBao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNGu" />
+            </key>
+            <one-to-many class="Model.TuyenDungThongBao" />
+        </set>
+        <set name="dichVuChiTiets" table="DichVuChiTiet" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" not-null="true" />
+            </key>
+            <one-to-many class="Model.DichVuChiTiet" />
+        </set>
+        <set name="lichNgays" table="LichNgay" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.LichNgay" />
+        </set>
+        <set name="noiDungTinhChiTiets" table="NoiDungTinhChiTiet" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" not-null="true" />
+            </key>
+            <one-to-many class="Model.NoiDungTinhChiTiet" />
+        </set>
+        <set name="subMenus" table="SubMenu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.SubMenu" />
+        </set>
+        <set name="hoatDongs" table="HoatDong" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.HoatDong" />
+        </set>
+        <set name="subNotes" table="SubNote" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.SubNote" />
+        </set>
+        <set name="slideShows" table="SlideShow" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.SlideShow" />
+        </set>
+        <set name="subPhones" table="SubPhone" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.SubPhone" />
+        </set>
+        <set name="events" table="Event" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.Event" />
+        </set>
+        <set name="phanHois" table="PhanHoi" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.PhanHoi" />
+        </set>
+        <set name="videos" table="Video" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" not-null="true" />
+            </key>
+            <one-to-many class="Model.Video" />
+        </set>
+        <set name="messages" table="Message" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.Message" />
+        </set>
+        <set name="lienKetWebSites" table="LienKetWebSite" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.LienKetWebSite" />
+        </set>
+        <set name="imagePages" table="ImagePage" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" not-null="true" />
+            </key>
+            <one-to-many class="Model.ImagePage" />
+        </set>
+        <set name="tinhTrangHonNhans" table="TinhTrangHonNhan" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NgonNgu" />
+            </key>
+            <one-to-many class="Model.TinhTrangHonNhan" />
+        </set>
+    </class>
+</hibernate-mapping>

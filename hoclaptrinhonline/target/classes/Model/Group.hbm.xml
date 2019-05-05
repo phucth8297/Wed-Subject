@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 5, 2019 9:45:08 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.Group" table="Group" schema="dbo" catalog="CD_WEB" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="groupName" type="serializable">
+            <column name="GroupName" />
+        </property>
+        <set name="users" table="User" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_Group" />
+            </key>
+            <one-to-many class="Model.User" />
+        </set>
+        <set name="groupPermissions" table="GroupPermission" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_Group" not-null="true" />
+            </key>
+            <one-to-many class="Model.GroupPermission" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -120,7 +120,7 @@ gán giá trị cho biến list_gd, mỗi ref bean tương ứng 1 đối tượ
  <bean id="dataSource"
       class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
       <property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver" />
-      <property name="url" value="jdbc:jtds:sqlserver://localhost:1433/CD_WEB;instance=101.99.32.48,8899" />
+      <property name="url" value="jdbc:jtds:sqlserver://101.99.32.48:8899;DatabaseName=CD_WEB;user=sa;password=1@qweQAZ" />
       <property name="username" value="sa" />
       <property name="password" value="1@qweQAZ" />
   </bean>
