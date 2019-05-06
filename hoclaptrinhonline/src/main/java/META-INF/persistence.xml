@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="hoclaptrinhonline" transaction-type="RESOURCE_LOCAL">
+		<class>com.hoclaptrinhonline.entity.DanhMucBacSi</class>
+		<class>com.hoclaptrinhonline.entity.DichVu</class>
+		<!-- <class>com.hoclaptrinhonline.entity.DichVuChiTiet</class>
+		<class>com.hoclaptrinhonline.entity.DichVuChiTietPK</class>
+		<class>com.hoclaptrinhonline.entity.Event</class> -->
+		<class>com.hoclaptrinhonline.entity.GioKham</class>
+		<class>com.hoclaptrinhonline.entity.GioiThieu</class>
+		<!-- <class>com.hoclaptrinhonline.entity.GioiThieuChiTiet</class>
+		<class>com.hoclaptrinhonline.entity.GioiThieuChiTietPK</class> -->
+		<class>com.hoclaptrinhonline.entity.Group</class>
+		<!-- <class>com.hoclaptrinhonline.entity.GroupPermission</class>
+		<class>com.hoclaptrinhonline.entity.GroupPermissionPK</class> -->
+		<class>com.hoclaptrinhonline.entity.HenKhamBenh</class>
+		<!-- <class>com.hoclaptrinhonline.entity.HoatDong</class>
+		<class>com.hoclaptrinhonline.entity.HoiDapYKhoa</class> -->
+		<class>com.hoclaptrinhonline.entity.ImagePage</class>
+		<class>com.hoclaptrinhonline.entity.ImagePagePK</class>
+		<class>com.hoclaptrinhonline.entity.KhoaPhong</class>
+		<class>com.hoclaptrinhonline.entity.LichKham</class>
+		<class>com.hoclaptrinhonline.entity.LichKhamPK</class>
+		<class>com.hoclaptrinhonline.entity.LichNgay</class>
+		<!-- <class>com.hoclaptrinhonline.entity.LienHeKhachHang</class> -->
+		<class>com.hoclaptrinhonline.entity.LienKetWebSite</class>
+		<class>com.hoclaptrinhonline.entity.LoaiCauHoi</class>
+		<class>com.hoclaptrinhonline.entity.LoaiHoatDong</class>
+		<class>com.hoclaptrinhonline.entity.LoaiKhoaPhong</class>
+		<class>com.hoclaptrinhonline.entity.LoaiTin</class>
+		<class>com.hoclaptrinhonline.entity.LoaiTuyenDung</class>
+		<class>com.hoclaptrinhonline.entity.Menu</class>
+		<class>com.hoclaptrinhonline.entity.MenuLeft</class>
+		<class>com.hoclaptrinhonline.entity.Message</class>
+		<class>com.hoclaptrinhonline.entity.NamSinh</class>
+		<class>com.hoclaptrinhonline.entity.NgonNgu</class>
+		<class>com.hoclaptrinhonline.entity.NoiDungTinh</class>
+		<!-- <class>com.hoclaptrinhonline.entity.NoiDungTinhChiTiet</class>
+		<class>com.hoclaptrinhonline.entity.NoiDungTinhChiTietPK</class> -->
+		<class>com.hoclaptrinhonline.entity.Page</class>
+		<!-- <class>com.hoclaptrinhonline.entity.PageOfMenu</class> -->
+		<class>com.hoclaptrinhonline.entity.Permission</class>
+		<!-- <class>com.hoclaptrinhonline.entity.PhanHoi</class> -->
+		<class>com.hoclaptrinhonline.entity.PhongKham</class>
+		<class>com.hoclaptrinhonline.entity.QuocTich</class>
+		<class>com.hoclaptrinhonline.entity.SlideShow</class>
+		<class>com.hoclaptrinhonline.entity.SubMenu</class>
+		<class>com.hoclaptrinhonline.entity.SubNote</class>
+		<class>com.hoclaptrinhonline.entity.SubPhone</class>
+		<class>com.hoclaptrinhonline.entity.ThamSo</class>
+		<!-- <class>com.hoclaptrinhonline.entity.TinTuc</class> -->
+		<class>com.hoclaptrinhonline.entity.TinhTrangHonNhan</class>
+		<class>com.hoclaptrinhonline.entity.TrangThai</class>
+		<!-- <class>com.hoclaptrinhonline.entity.TuyenDungThongBao</class> -->
+		<class>com.hoclaptrinhonline.entity.User</class>
+		<!-- <class>com.hoclaptrinhonline.entity.UserPermission</class>
+		<class>com.hoclaptrinhonline.entity.UserPermissionPK</class> -->
+		<class>com.hoclaptrinhonline.entity.Video</class>
+		<class>com.hoclaptrinhonline.entity.Sysdiagram</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://101.99.32.48:8899;DatabaseName=CD_WEB;user=sa;password=1@qweQAZ"/>
+			<property name="javax.persistence.jdbc.user" value="sa"/>
+			<property name="javax.persistence.jdbc.password" value="1@qweQAZ"/>
+			<property name="javax.persistence.jdbc.driver" value="net.sourceforge.jtds.jdbc.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
