@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 5, 2019 9:45:08 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.KhoaPhong" table="KhoaPhong" schema="dbo" catalog="CD_WEB" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="loaiKhoaPhong" class="Model.LoaiKhoaPhong" fetch="select">
+            <column name="FK_LoaiKhoaPhong" />
+        </many-to-one>
+        <many-to-one name="ngonNgu" class="Model.NgonNgu" fetch="select">
+            <column name="FK_NgonNgu" />
+        </many-to-one>
+        <property name="tieuDeKhoa" type="serializable">
+            <column name="TieuDeKhoa" />
+        </property>
+        <property name="tenKhoaPhong" type="serializable">
+            <column name="TenKhoaPhong" />
+        </property>
+        <property name="gioiThieu" type="serializable">
+            <column name="GioiThieu" />
+        </property>
+        <property name="noiDung" type="serializable">
+            <column name="NoiDung" />
+        </property>
+        <property name="ngayCapNhat" type="timestamp">
+            <column name="NgayCapNhat" length="23" />
+        </property>
+        <property name="userModify" type="string">
+            <column name="UserModify" length="20" />
+        </property>
+        <property name="hinhAnhDaiDien" type="serializable">
+            <column name="HinhAnhDaiDien" />
+        </property>
+        <property name="henKhamBenh" type="java.lang.Boolean">
+            <column name="HenKhamBenh" />
+        </property>
+        <property name="stt" type="java.lang.Integer">
+            <column name="STT" />
+        </property>
+        <property name="luotXem" type="java.lang.Integer">
+            <column name="LuotXem" />
+        </property>
+        <set name="danhMucBacSis" table="DanhMucBacSi" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_KhoaPhong" />
+            </key>
+            <one-to-many class="Model.DanhMucBacSi" />
+        </set>
+        <set name="users" table="User" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_KhoaPhong" />
+            </key>
+            <one-to-many class="Model.User" />
+        </set>
+    </class>
+</hibernate-mapping>

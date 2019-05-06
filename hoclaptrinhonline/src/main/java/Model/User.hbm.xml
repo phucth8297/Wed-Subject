@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 5, 2019 9:45:08 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.User" table="User" schema="dbo" catalog="CD_WEB" optimistic-lock="version">
+        <id name="userName" type="string">
+            <column name="UserName" length="20" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="group" class="Model.Group" fetch="select">
+            <column name="FK_Group" />
+        </many-to-one>
+        <many-to-one name="khoaPhong" class="Model.KhoaPhong" fetch="select">
+            <column name="FK_KhoaPhong" />
+        </many-to-one>
+        <property name="passWord" type="string">
+            <column name="PassWord" length="32" />
+        </property>
+        <property name="hoVaTen" type="serializable">
+            <column name="HoVaTen" />
+        </property>
+        <property name="nearLastLogin" type="timestamp">
+            <column name="NearLastLogin" length="23" />
+        </property>
+        <property name="lastLogin" type="timestamp">
+            <column name="LastLogin" length="23" />
+        </property>
+        <property name="active" type="java.lang.Boolean">
+            <column name="Active" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="100" />
+        </property>
+        <set name="tinTucsForFkUserNguoiSua" table="TinTuc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_UserNguoiSua" length="20" />
+            </key>
+            <one-to-many class="Model.TinTuc" />
+        </set>
+        <set name="events" table="Event" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_UserTao" length="20" />
+            </key>
+            <one-to-many class="Model.Event" />
+        </set>
+        <set name="gioiThieuChiTiets" table="GioiThieuChiTiet" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_UserModify" length="20" />
+            </key>
+            <one-to-many class="Model.GioiThieuChiTiet" />
+        </set>
+        <set name="noiDungTinhChiTiets" table="NoiDungTinhChiTiet" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_UserChinhsua" length="20" />
+            </key>
+            <one-to-many class="Model.NoiDungTinhChiTiet" />
+        </set>
+        <set name="lienHeKhachHangs" table="LienHeKhachHang" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NguoiXem" length="20" />
+            </key>
+            <one-to-many class="Model.LienHeKhachHang" />
+        </set>
+        <set name="tuyenDungThongBaos" table="TuyenDungThongBao" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NguoiTao" length="20" />
+            </key>
+            <one-to-many class="Model.TuyenDungThongBao" />
+        </set>
+        <set name="tinTucsForFkUserNguoiTao" table="TinTuc" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_UserNguoiTao" length="20" />
+            </key>
+            <one-to-many class="Model.TinTuc" />
+        </set>
+        <set name="userPermissions" table="UserPermission" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_User" length="20" not-null="true" />
+            </key>
+            <one-to-many class="Model.UserPermission" />
+        </set>
+        <set name="hoatDongsForFkNguoiSua" table="HoatDong" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NguoiSua" length="20" />
+            </key>
+            <one-to-many class="Model.HoatDong" />
+        </set>
+        <set name="dichVuChiTiets" table="DichVuChiTiet" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_UserModify" length="20" />
+            </key>
+            <one-to-many class="Model.DichVuChiTiet" />
+        </set>
+        <set name="hoatDongsForFkNguoiTao" table="HoatDong" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_NguoiTao" length="20" />
+            </key>
+            <one-to-many class="Model.HoatDong" />
+        </set>
+        <set name="hoiDapYkhoas" table="HoiDapYKhoa" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_UserTraLoi" length="20" />
+            </key>
+            <one-to-many class="Model.HoiDapYkhoa" />
+        </set>
+        <set name="phanHois" table="PhanHoi" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="FK_UserTraLoi" length="20" />
+            </key>
+            <one-to-many class="Model.PhanHoi" />
+        </set>
+    </class>
+</hibernate-mapping>

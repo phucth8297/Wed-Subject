@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 5, 2019 9:45:08 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Model.SlideShow" table="SlideShow" schema="dbo" catalog="CD_WEB" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ngonNgu" class="Model.NgonNgu" fetch="select">
+            <column name="FK_NgonNgu" />
+        </many-to-one>
+        <property name="tieuDe" type="serializable">
+            <column name="TieuDe" />
+        </property>
+        <property name="hinhAnh" type="serializable">
+            <column name="HinhAnh" />
+        </property>
+        <property name="stt" type="java.lang.Integer">
+            <column name="STT" />
+        </property>
+        <property name="isNewtab" type="java.lang.Boolean">
+            <column name="IsNewtab" />
+        </property>
+        <property name="linkEvent" type="serializable">
+            <column name="LinkEvent" />
+        </property>
+        <property name="isLink" type="java.lang.Boolean">
+            <column name="IsLink" />
+        </property>
+    </class>
+</hibernate-mapping>
