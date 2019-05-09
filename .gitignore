@@ -23,3 +23,6 @@
 hs_err_pid*
 /.metadata/
 /.recommenders/
+RemoteSystemsTempFiles/.project
+hoclaptrinhonline/.settings/org.eclipse.ltk.core.refactoring.prefs
+hoclaptrinhonline/.settings/org.eclipse.jpt.entitygen.data.dbo
