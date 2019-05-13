@@ -2,7 +2,6 @@ package com.hoclaptringonline.ENTITY;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -18,21 +17,8 @@ public class LoaiTuyenDung implements Serializable {
 	@Id
 	private int id;
 
-	@Column(name="\"FK_NgonNgu\"")
-	private int FK_NgonNgu;
-
 	@Column(name="\"TenLoai\"")
 	private String tenLoai;
-
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
-	//bi-directional many-to-one association to TuyenDungThongBao
-	@OneToMany(mappedBy="loaiTuyenDung")
-	private List<TuyenDungThongBao> tuyenDungThongBaos;
 
 	public LoaiTuyenDung() {
 	}
@@ -45,50 +31,12 @@ public class LoaiTuyenDung implements Serializable {
 		this.id = id;
 	}
 
-	public int getFK_NgonNgu() {
-		return this.FK_NgonNgu;
-	}
-
-	public void setFK_NgonNgu(int FK_NgonNgu) {
-		this.FK_NgonNgu = FK_NgonNgu;
-	}
-
 	public String getTenLoai() {
 		return this.tenLoai;
 	}
 
 	public void setTenLoai(String tenLoai) {
 		this.tenLoai = tenLoai;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
-	}
-
-	public List<TuyenDungThongBao> getTuyenDungThongBaos() {
-		return this.tuyenDungThongBaos;
-	}
-
-	public void setTuyenDungThongBaos(List<TuyenDungThongBao> tuyenDungThongBaos) {
-		this.tuyenDungThongBaos = tuyenDungThongBaos;
-	}
-
-	public TuyenDungThongBao addTuyenDungThongBao(TuyenDungThongBao tuyenDungThongBao) {
-		getTuyenDungThongBaos().add(tuyenDungThongBao);
-		tuyenDungThongBao.setLoaiTuyenDung(this);
-
-		return tuyenDungThongBao;
-	}
-
-	public TuyenDungThongBao removeTuyenDungThongBao(TuyenDungThongBao tuyenDungThongBao) {
-		getTuyenDungThongBaos().remove(tuyenDungThongBao);
-		tuyenDungThongBao.setLoaiTuyenDung(null);
-
-		return tuyenDungThongBao;
 	}
 
 }

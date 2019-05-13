@@ -2,7 +2,6 @@ package com.hoclaptringonline.ENTITY;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -23,9 +22,6 @@ public class Menu implements Serializable {
 
 	@Column(name="\"ControllerName\"")
 	private String controllerName;
-
-	@Column(name="\"FK_NgonNgu\"")
-	private int FK_NgonNgu;
 
 	@Column(name="\"IDParrent\"")
 	private int IDParrent;
@@ -54,16 +50,6 @@ public class Menu implements Serializable {
 	@Column(name="\"root\"")
 	private boolean root;
 
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
-	//bi-directional many-to-one association to Page
-	@OneToMany(mappedBy="menu")
-	private List<Page> pages;
-
 	public Menu() {
 	}
 
@@ -89,14 +75,6 @@ public class Menu implements Serializable {
 
 	public void setControllerName(String controllerName) {
 		this.controllerName = controllerName;
-	}
-
-	public int getFK_NgonNgu() {
-		return this.FK_NgonNgu;
-	}
-
-	public void setFK_NgonNgu(int FK_NgonNgu) {
-		this.FK_NgonNgu = FK_NgonNgu;
 	}
 
 	public int getIDParrent() {
@@ -169,36 +147,6 @@ public class Menu implements Serializable {
 
 	public void setRoot(boolean root) {
 		this.root = root;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
-	}
-
-	public List<Page> getPages() {
-		return this.pages;
-	}
-
-	public void setPages(List<Page> pages) {
-		this.pages = pages;
-	}
-
-	public Page addPage(Page page) {
-		getPages().add(page);
-		page.setMenu(this);
-
-		return page;
-	}
-
-	public Page removePage(Page page) {
-		getPages().remove(page);
-		page.setMenu(null);
-
-		return page;
 	}
 
 }

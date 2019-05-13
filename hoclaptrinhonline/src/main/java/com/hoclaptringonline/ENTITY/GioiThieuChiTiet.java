@@ -16,10 +16,7 @@ public class GioiThieuChiTiet implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private GioiThieuChiTietPK idPK;
-
-	@Column(name="\"FK_UserModify\"")
-	private String FK_UserModify;
+	private GioiThieuChiTietPK id;
 
 	@Column(name="\"GioiThieu\"")
 	private String gioiThieu;
@@ -27,6 +24,7 @@ public class GioiThieuChiTiet implements Serializable {
 	@Column(name="\"HinhAnh\"")
 	private String hinhAnh;
 
+	@Id
 	private int id;
 
 	@Column(name="\"LuotXem\"")
@@ -45,41 +43,15 @@ public class GioiThieuChiTiet implements Serializable {
 	@Column(name="\"Ten\"")
 	private String ten;
 
-	//bi-directional many-to-one association to GioiThieu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private GioiThieu gioiThieuBean;
-
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumns({
-		})
-	private User user;
-
 	public GioiThieuChiTiet() {
 	}
 
-	public GioiThieuChiTietPK idPK() {
-		return this.idPK;
+	public GioiThieuChiTietPK getId() {
+		return this.id;
 	}
 
-	public void setId(GioiThieuChiTietPK idPK) {
-		this.idPK = idPK;
-	}
-
-	public String getFK_UserModify() {
-		return this.FK_UserModify;
-	}
-
-	public void setFK_UserModify(String FK_UserModify) {
-		this.FK_UserModify = FK_UserModify;
+	public void setId(GioiThieuChiTietPK id) {
+		this.id = id;
 	}
 
 	public String getGioiThieu() {
@@ -144,30 +116,6 @@ public class GioiThieuChiTiet implements Serializable {
 
 	public void setTen(String ten) {
 		this.ten = ten;
-	}
-
-	public GioiThieu getGioiThieuBean() {
-		return this.gioiThieuBean;
-	}
-
-	public void setGioiThieuBean(GioiThieu gioiThieuBean) {
-		this.gioiThieuBean = gioiThieuBean;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
-	}
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 }

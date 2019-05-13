@@ -47,7 +47,6 @@
 		<class>com.hoclaptringonline.ENTITY.SubMenu</class>
 		<class>com.hoclaptringonline.ENTITY.SubNote</class>
 		<class>com.hoclaptringonline.ENTITY.SubPhone</class>
-		<class>com.hoclaptringonline.ENTITY.Sysdiagram</class>
 		<class>com.hoclaptringonline.ENTITY.ThamSo</class>
 		<class>com.hoclaptringonline.ENTITY.TinTuc</class>
 		<class>com.hoclaptringonline.ENTITY.TinhTrangHonNhan</class>
@@ -57,7 +56,8 @@
 		<class>com.hoclaptringonline.ENTITY.UserPermission</class>
 		<class>com.hoclaptringonline.ENTITY.UserPermissionPK</class>
 		<class>com.hoclaptringonline.ENTITY.Video</class>
-		
+		<class>com.hoclaptringonline.ENTITY.Sysdiagram</class>
+
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://101.99.32.48:8899;DatabaseName=CD_WEB;user=sa;password=1@qweQAZ"/>
 			<property name="javax.persistence.jdbc.user" value="sa"/>

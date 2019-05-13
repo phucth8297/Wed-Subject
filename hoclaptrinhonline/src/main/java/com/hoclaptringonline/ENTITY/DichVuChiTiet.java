@@ -15,9 +15,6 @@ import java.sql.Timestamp;
 public class DichVuChiTiet implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private DichVuChiTietPK idPK;
-
 	@Column(name="\"FK_UserModify\"")
 	private String FK_UserModify;
 
@@ -27,6 +24,7 @@ public class DichVuChiTiet implements Serializable {
 	@Column(name="\"HinhAnh\"")
 	private String hinhAnh;
 
+	@Id
 	private int id;
 
 	@Column(name="\"LuotXem\"")
@@ -45,34 +43,9 @@ public class DichVuChiTiet implements Serializable {
 	@Column(name="\"TenDichVu\"")
 	private String tenDichVu;
 
-	//bi-directional many-to-one association to DichVu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private DichVu dichVu;
-
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumns({
-		})
-	private User user;
-
 	public DichVuChiTiet() {
 	}
 
-	public DichVuChiTietPK getIdPK() {
-		return this.idPK;
-	}
-
-	public void setId(DichVuChiTietPK idPK) {
-		this.idPK = idPK;
-	}
 
 	public String getFK_UserModify() {
 		return this.FK_UserModify;
@@ -144,30 +117,6 @@ public class DichVuChiTiet implements Serializable {
 
 	public void setTenDichVu(String tenDichVu) {
 		this.tenDichVu = tenDichVu;
-	}
-
-	public DichVu getDichVu() {
-		return this.dichVu;
-	}
-
-	public void setDichVu(DichVu dichVu) {
-		this.dichVu = dichVu;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
-	}
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 }

@@ -3,7 +3,6 @@ package com.hoclaptringonline.ENTITY;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 
 
 /**
@@ -18,12 +17,6 @@ public class KhoaPhong implements Serializable {
 
 	@Id
 	private int id;
-
-	@Column(name="\"FK_LoaiKhoaPhong\"")
-	private int FK_LoaiKhoaPhong;
-
-	@Column(name="\"FK_NgonNgu\"")
-	private int FK_NgonNgu;
 
 	@Column(name="\"GioiThieu\"")
 	private String gioiThieu;
@@ -55,26 +48,6 @@ public class KhoaPhong implements Serializable {
 	@Column(name="\"UserModify\"")
 	private String userModify;
 
-	//bi-directional many-to-one association to DanhMucBacSi
-	@OneToMany(mappedBy="khoaPhong")
-	private List<DanhMucBacSi> danhMucBacSis;
-
-	//bi-directional many-to-one association to LoaiKhoaPhong
-	@ManyToOne
-	@JoinColumns({
-		})
-	private LoaiKhoaPhong loaiKhoaPhong;
-
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
-	//bi-directional many-to-one association to User
-	@OneToMany(mappedBy="khoaPhong")
-	private List<User> users;
-
 	public KhoaPhong() {
 	}
 
@@ -84,22 +57,6 @@ public class KhoaPhong implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getFK_LoaiKhoaPhong() {
-		return this.FK_LoaiKhoaPhong;
-	}
-
-	public void setFK_LoaiKhoaPhong(int FK_LoaiKhoaPhong) {
-		this.FK_LoaiKhoaPhong = FK_LoaiKhoaPhong;
-	}
-
-	public int getFK_NgonNgu() {
-		return this.FK_NgonNgu;
-	}
-
-	public void setFK_NgonNgu(int FK_NgonNgu) {
-		this.FK_NgonNgu = FK_NgonNgu;
 	}
 
 	public String getGioiThieu() {
@@ -180,66 +137,6 @@ public class KhoaPhong implements Serializable {
 
 	public void setUserModify(String userModify) {
 		this.userModify = userModify;
-	}
-
-	public List<DanhMucBacSi> getDanhMucBacSis() {
-		return this.danhMucBacSis;
-	}
-
-	public void setDanhMucBacSis(List<DanhMucBacSi> danhMucBacSis) {
-		this.danhMucBacSis = danhMucBacSis;
-	}
-
-	public DanhMucBacSi addDanhMucBacSi(DanhMucBacSi danhMucBacSi) {
-		getDanhMucBacSis().add(danhMucBacSi);
-		danhMucBacSi.setKhoaPhong(this);
-
-		return danhMucBacSi;
-	}
-
-	public DanhMucBacSi removeDanhMucBacSi(DanhMucBacSi danhMucBacSi) {
-		getDanhMucBacSis().remove(danhMucBacSi);
-		danhMucBacSi.setKhoaPhong(null);
-
-		return danhMucBacSi;
-	}
-
-	public LoaiKhoaPhong getLoaiKhoaPhong() {
-		return this.loaiKhoaPhong;
-	}
-
-	public void setLoaiKhoaPhong(LoaiKhoaPhong loaiKhoaPhong) {
-		this.loaiKhoaPhong = loaiKhoaPhong;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
-	}
-
-	public List<User> getUsers() {
-		return this.users;
-	}
-
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
-
-	public User addUser(User user) {
-		getUsers().add(user);
-		user.setKhoaPhong(this);
-
-		return user;
-	}
-
-	public User removeUser(User user) {
-		getUsers().remove(user);
-		user.setKhoaPhong(null);
-
-		return user;
 	}
 
 }

@@ -17,9 +17,6 @@ public class SubNote implements Serializable {
 	@Id
 	private int id;
 
-	@Column(name="\"FK_NgonNgu\"")
-	private int FK_NgonNgu;
-
 	@Column(name="\"Image\"")
 	private String image;
 
@@ -32,12 +29,6 @@ public class SubNote implements Serializable {
 	@Column(name="\"TieuDe\"")
 	private String tieuDe;
 
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
 	public SubNote() {
 	}
 
@@ -47,14 +38,6 @@ public class SubNote implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getFK_NgonNgu() {
-		return this.FK_NgonNgu;
-	}
-
-	public void setFK_NgonNgu(int FK_NgonNgu) {
-		this.FK_NgonNgu = FK_NgonNgu;
 	}
 
 	public String getImage() {
@@ -87,14 +70,6 @@ public class SubNote implements Serializable {
 
 	public void setTieuDe(String tieuDe) {
 		this.tieuDe = tieuDe;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
 	}
 
 }

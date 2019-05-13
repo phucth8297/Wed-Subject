@@ -30,9 +30,6 @@ public class LienHeKhachHang implements Serializable {
 	@Column(name="\"Email\"")
 	private String email;
 
-	@Column(name="\"FK_NguoiXem\"")
-	private String FK_NguoiXem;
-
 	@Column(name="\"HoVaTen\"")
 	private String hoVaTen;
 
@@ -48,12 +45,6 @@ public class LienHeKhachHang implements Serializable {
 
 	@Column(name="\"TieuDe\"")
 	private String tieuDe;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumns({
-		})
-	private User user;
 
 	public LienHeKhachHang() {
 	}
@@ -98,14 +89,6 @@ public class LienHeKhachHang implements Serializable {
 		this.email = email;
 	}
 
-	public String getFK_NguoiXem() {
-		return this.FK_NguoiXem;
-	}
-
-	public void setFK_NguoiXem(String FK_NguoiXem) {
-		this.FK_NguoiXem = FK_NguoiXem;
-	}
-
 	public String getHoVaTen() {
 		return this.hoVaTen;
 	}
@@ -144,14 +127,6 @@ public class LienHeKhachHang implements Serializable {
 
 	public void setTieuDe(String tieuDe) {
 		this.tieuDe = tieuDe;
-	}
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 }

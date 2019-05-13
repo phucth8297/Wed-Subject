@@ -2,7 +2,6 @@ package com.hoclaptringonline.ENTITY;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -27,14 +26,6 @@ public class Permission implements Serializable {
 
 	@Column(name="\"PermissionName\"")
 	private String permissionName;
-
-	//bi-directional many-to-one association to GroupPermission
-	@OneToMany(mappedBy="permission")
-	private List<GroupPermission> groupPermissions;
-
-	//bi-directional many-to-one association to UserPermission
-	@OneToMany(mappedBy="permission")
-	private List<UserPermission> userPermissions;
 
 	public Permission() {
 	}
@@ -69,50 +60,6 @@ public class Permission implements Serializable {
 
 	public void setPermissionName(String permissionName) {
 		this.permissionName = permissionName;
-	}
-
-	public List<GroupPermission> getGroupPermissions() {
-		return this.groupPermissions;
-	}
-
-	public void setGroupPermissions(List<GroupPermission> groupPermissions) {
-		this.groupPermissions = groupPermissions;
-	}
-
-	public GroupPermission addGroupPermission(GroupPermission groupPermission) {
-		getGroupPermissions().add(groupPermission);
-		groupPermission.setPermission(this);
-
-		return groupPermission;
-	}
-
-	public GroupPermission removeGroupPermission(GroupPermission groupPermission) {
-		getGroupPermissions().remove(groupPermission);
-		groupPermission.setPermission(null);
-
-		return groupPermission;
-	}
-
-	public List<UserPermission> getUserPermissions() {
-		return this.userPermissions;
-	}
-
-	public void setUserPermissions(List<UserPermission> userPermissions) {
-		this.userPermissions = userPermissions;
-	}
-
-	public UserPermission addUserPermission(UserPermission userPermission) {
-		getUserPermissions().add(userPermission);
-		userPermission.setPermission(this);
-
-		return userPermission;
-	}
-
-	public UserPermission removeUserPermission(UserPermission userPermission) {
-		getUserPermissions().remove(userPermission);
-		userPermission.setPermission(null);
-
-		return userPermission;
 	}
 
 }

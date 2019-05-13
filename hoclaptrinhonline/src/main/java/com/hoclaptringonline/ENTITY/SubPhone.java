@@ -17,9 +17,6 @@ public class SubPhone implements Serializable {
 	@Id
 	private int id;
 
-	@Column(name="\"FK_NgonNgu\"")
-	private int FK_NgonNgu;
-
 	@Column(name="\"Master\"")
 	private boolean master;
 
@@ -28,12 +25,6 @@ public class SubPhone implements Serializable {
 
 	@Column(name="\"SoDienThoai\"")
 	private String soDienThoai;
-
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
 
 	public SubPhone() {
 	}
@@ -44,14 +35,6 @@ public class SubPhone implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getFK_NgonNgu() {
-		return this.FK_NgonNgu;
-	}
-
-	public void setFK_NgonNgu(int FK_NgonNgu) {
-		this.FK_NgonNgu = FK_NgonNgu;
 	}
 
 	public boolean getMaster() {
@@ -76,14 +59,6 @@ public class SubPhone implements Serializable {
 
 	public void setSoDienThoai(String soDienThoai) {
 		this.soDienThoai = soDienThoai;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
 	}
 
 }

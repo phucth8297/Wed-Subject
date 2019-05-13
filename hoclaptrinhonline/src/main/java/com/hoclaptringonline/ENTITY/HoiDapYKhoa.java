@@ -27,15 +27,6 @@ public class HoiDapYKhoa implements Serializable {
 	@Column(name="\"Email\"")
 	private String email;
 
-	@Column(name="\"FK_ChuyenKhoa\"")
-	private int FK_ChuyenKhoa;
-
-	@Column(name="\"FK_NamSinh\"")
-	private int FK_NamSinh;
-
-	@Column(name="\"FK_UserTraLoi\"")
-	private String FK_UserTraLoi;
-
 	@Column(name="\"GioiTinh\"")
 	private boolean gioiTinh;
 
@@ -67,24 +58,6 @@ public class HoiDapYKhoa implements Serializable {
 
 	@Column(name="\"TieuDe\"")
 	private String tieuDe;
-
-	//bi-directional many-to-one association to LoaiCauHoi
-	@ManyToOne
-	@JoinColumns({
-		})
-	private LoaiCauHoi loaiCauHoi;
-
-	//bi-directional many-to-one association to NamSinh
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NamSinh namSinh;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumns({
-		})
-	private User user;
 
 	public HoiDapYKhoa() {
 	}
@@ -119,30 +92,6 @@ public class HoiDapYKhoa implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public int getFK_ChuyenKhoa() {
-		return this.FK_ChuyenKhoa;
-	}
-
-	public void setFK_ChuyenKhoa(int FK_ChuyenKhoa) {
-		this.FK_ChuyenKhoa = FK_ChuyenKhoa;
-	}
-
-	public int getFK_NamSinh() {
-		return this.FK_NamSinh;
-	}
-
-	public void setFK_NamSinh(int FK_NamSinh) {
-		this.FK_NamSinh = FK_NamSinh;
-	}
-
-	public String getFK_UserTraLoi() {
-		return this.FK_UserTraLoi;
-	}
-
-	public void setFK_UserTraLoi(String FK_UserTraLoi) {
-		this.FK_UserTraLoi = FK_UserTraLoi;
 	}
 
 	public boolean getGioiTinh() {
@@ -223,30 +172,6 @@ public class HoiDapYKhoa implements Serializable {
 
 	public void setTieuDe(String tieuDe) {
 		this.tieuDe = tieuDe;
-	}
-
-	public LoaiCauHoi getLoaiCauHoi() {
-		return this.loaiCauHoi;
-	}
-
-	public void setLoaiCauHoi(LoaiCauHoi loaiCauHoi) {
-		this.loaiCauHoi = loaiCauHoi;
-	}
-
-	public NamSinh getNamSinh() {
-		return this.namSinh;
-	}
-
-	public void setNamSinh(NamSinh namSinh) {
-		this.namSinh = namSinh;
-	}
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 }

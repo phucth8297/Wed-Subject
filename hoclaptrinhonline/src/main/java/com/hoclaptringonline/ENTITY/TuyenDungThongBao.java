@@ -18,15 +18,6 @@ public class TuyenDungThongBao implements Serializable {
 	@Id
 	private int id;
 
-	@Column(name="\"FK_LoaiTuyenDung\"")
-	private int FK_LoaiTuyenDung;
-
-	@Column(name="\"FK_NgonNGu\"")
-	private int FK_NgonNGu;
-
-	@Column(name="\"FK_NguoiTao\"")
-	private String FK_NguoiTao;
-
 	@Column(name="\"GioiThieu\"")
 	private String gioiThieu;
 
@@ -48,24 +39,6 @@ public class TuyenDungThongBao implements Serializable {
 	@Column(name="\"TieuDe\"")
 	private String tieuDe;
 
-	//bi-directional many-to-one association to LoaiTuyenDung
-	@ManyToOne
-	@JoinColumns({
-		})
-	private LoaiTuyenDung loaiTuyenDung;
-
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumns({
-		})
-	private User user;
-
 	public TuyenDungThongBao() {
 	}
 
@@ -75,30 +48,6 @@ public class TuyenDungThongBao implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getFK_LoaiTuyenDung() {
-		return this.FK_LoaiTuyenDung;
-	}
-
-	public void setFK_LoaiTuyenDung(int FK_LoaiTuyenDung) {
-		this.FK_LoaiTuyenDung = FK_LoaiTuyenDung;
-	}
-
-	public int getFK_NgonNGu() {
-		return this.FK_NgonNGu;
-	}
-
-	public void setFK_NgonNGu(int FK_NgonNGu) {
-		this.FK_NgonNGu = FK_NgonNGu;
-	}
-
-	public String getFK_NguoiTao() {
-		return this.FK_NguoiTao;
-	}
-
-	public void setFK_NguoiTao(String FK_NguoiTao) {
-		this.FK_NguoiTao = FK_NguoiTao;
 	}
 
 	public String getGioiThieu() {
@@ -155,30 +104,6 @@ public class TuyenDungThongBao implements Serializable {
 
 	public void setTieuDe(String tieuDe) {
 		this.tieuDe = tieuDe;
-	}
-
-	public LoaiTuyenDung getLoaiTuyenDung() {
-		return this.loaiTuyenDung;
-	}
-
-	public void setLoaiTuyenDung(LoaiTuyenDung loaiTuyenDung) {
-		this.loaiTuyenDung = loaiTuyenDung;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
-	}
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 }

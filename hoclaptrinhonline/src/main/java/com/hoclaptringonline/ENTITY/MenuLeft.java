@@ -2,7 +2,6 @@ package com.hoclaptringonline.ENTITY;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -30,10 +29,6 @@ public class MenuLeft implements Serializable {
 
 	@Column(name="\"Prioty\"")
 	private int prioty;
-
-	//bi-directional many-to-one association to PageOfMenu
-	@OneToMany(mappedBy="menuLeft")
-	private List<PageOfMenu> pageOfMenus;
 
 	public MenuLeft() {
 	}
@@ -76,28 +71,6 @@ public class MenuLeft implements Serializable {
 
 	public void setPrioty(int prioty) {
 		this.prioty = prioty;
-	}
-
-	public List<PageOfMenu> getPageOfMenus() {
-		return this.pageOfMenus;
-	}
-
-	public void setPageOfMenus(List<PageOfMenu> pageOfMenus) {
-		this.pageOfMenus = pageOfMenus;
-	}
-
-	public PageOfMenu addPageOfMenus(PageOfMenu pageOfMenus) {
-		getPageOfMenus().add(pageOfMenus);
-		pageOfMenus.setMenuLeft(this);
-
-		return pageOfMenus;
-	}
-
-	public PageOfMenu removePageOfMenus(PageOfMenu pageOfMenus) {
-		getPageOfMenus().remove(pageOfMenus);
-		pageOfMenus.setMenuLeft(null);
-
-		return pageOfMenus;
 	}
 
 }

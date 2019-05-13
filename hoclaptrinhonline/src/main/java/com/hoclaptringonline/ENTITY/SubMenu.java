@@ -17,9 +17,6 @@ public class SubMenu implements Serializable {
 	@Id
 	private int id;
 
-	@Column(name="\"FK_NgonNgu\"")
-	private int FK_NgonNgu;
-
 	@Column(name="\"Link\"")
 	private String link;
 
@@ -27,12 +24,6 @@ public class SubMenu implements Serializable {
 	private String name;
 
 	private int stt;
-
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
 
 	public SubMenu() {
 	}
@@ -43,14 +34,6 @@ public class SubMenu implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getFK_NgonNgu() {
-		return this.FK_NgonNgu;
-	}
-
-	public void setFK_NgonNgu(int FK_NgonNgu) {
-		this.FK_NgonNgu = FK_NgonNgu;
 	}
 
 	public String getLink() {
@@ -75,14 +58,6 @@ public class SubMenu implements Serializable {
 
 	public void setStt(int stt) {
 		this.stt = stt;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
 	}
 
 }

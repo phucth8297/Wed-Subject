@@ -21,18 +21,6 @@ public class HoatDong implements Serializable {
 	@Column(name="\"Author\"")
 	private String author;
 
-	@Column(name="\"FK_LoaiHoatDong\"")
-	private int FK_LoaiHoatDong;
-
-	@Column(name="\"FK_NgonNgu\"")
-	private int FK_NgonNgu;
-
-	@Column(name="\"FK_NguoiSua\"")
-	private String FK_NguoiSua;
-
-	@Column(name="\"FK_NguoiTao\"")
-	private String FK_NguoiTao;
-
 	@Column(name="\"GioiThieu\"")
 	private String gioiThieu;
 
@@ -57,30 +45,6 @@ public class HoatDong implements Serializable {
 	@Column(name="\"TieuDe\"")
 	private String tieuDe;
 
-	//bi-directional many-to-one association to LoaiHoatDong
-	@ManyToOne
-	@JoinColumns({
-		})
-	private LoaiHoatDong loaiHoatDong;
-
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumns({
-		})
-	private User user1;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumns({
-		})
-	private User user2;
-
 	public HoatDong() {
 	}
 
@@ -98,38 +62,6 @@ public class HoatDong implements Serializable {
 
 	public void setAuthor(String author) {
 		this.author = author;
-	}
-
-	public int getFK_LoaiHoatDong() {
-		return this.FK_LoaiHoatDong;
-	}
-
-	public void setFK_LoaiHoatDong(int FK_LoaiHoatDong) {
-		this.FK_LoaiHoatDong = FK_LoaiHoatDong;
-	}
-
-	public int getFK_NgonNgu() {
-		return this.FK_NgonNgu;
-	}
-
-	public void setFK_NgonNgu(int FK_NgonNgu) {
-		this.FK_NgonNgu = FK_NgonNgu;
-	}
-
-	public String getFK_NguoiSua() {
-		return this.FK_NguoiSua;
-	}
-
-	public void setFK_NguoiSua(String FK_NguoiSua) {
-		this.FK_NguoiSua = FK_NguoiSua;
-	}
-
-	public String getFK_NguoiTao() {
-		return this.FK_NguoiTao;
-	}
-
-	public void setFK_NguoiTao(String FK_NguoiTao) {
-		this.FK_NguoiTao = FK_NguoiTao;
 	}
 
 	public String getGioiThieu() {
@@ -194,38 +126,6 @@ public class HoatDong implements Serializable {
 
 	public void setTieuDe(String tieuDe) {
 		this.tieuDe = tieuDe;
-	}
-
-	public LoaiHoatDong getLoaiHoatDong() {
-		return this.loaiHoatDong;
-	}
-
-	public void setLoaiHoatDong(LoaiHoatDong loaiHoatDong) {
-		this.loaiHoatDong = loaiHoatDong;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
-	}
-
-	public User getUser1() {
-		return this.user1;
-	}
-
-	public void setUser1(User user1) {
-		this.user1 = user1;
-	}
-
-	public User getUser2() {
-		return this.user2;
-	}
-
-	public void setUser2(User user2) {
-		this.user2 = user2;
 	}
 
 }

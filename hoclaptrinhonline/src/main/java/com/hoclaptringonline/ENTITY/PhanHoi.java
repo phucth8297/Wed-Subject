@@ -33,12 +33,6 @@ public class PhanHoi implements Serializable {
 	@Column(name="\"FK_LoaiPhanHoi\"")
 	private int FK_LoaiPhanHoi;
 
-	@Column(name="\"FK_NgonNgu\"")
-	private int FK_NgonNgu;
-
-	@Column(name="\"FK_UserTraLoi\"")
-	private String FK_UserTraLoi;
-
 	@Column(name="\"GioiTinh\"")
 	private boolean gioiTinh;
 
@@ -73,18 +67,6 @@ public class PhanHoi implements Serializable {
 
 	@Column(name="\"TieuDe\"")
 	private String tieuDe;
-
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumns({
-		})
-	private User user;
 
 	public PhanHoi() {
 	}
@@ -135,22 +117,6 @@ public class PhanHoi implements Serializable {
 
 	public void setFK_LoaiPhanHoi(int FK_LoaiPhanHoi) {
 		this.FK_LoaiPhanHoi = FK_LoaiPhanHoi;
-	}
-
-	public int getFK_NgonNgu() {
-		return this.FK_NgonNgu;
-	}
-
-	public void setFK_NgonNgu(int FK_NgonNgu) {
-		this.FK_NgonNgu = FK_NgonNgu;
-	}
-
-	public String getFK_UserTraLoi() {
-		return this.FK_UserTraLoi;
-	}
-
-	public void setFK_UserTraLoi(String FK_UserTraLoi) {
-		this.FK_UserTraLoi = FK_UserTraLoi;
 	}
 
 	public boolean getGioiTinh() {
@@ -239,22 +205,6 @@ public class PhanHoi implements Serializable {
 
 	public void setTieuDe(String tieuDe) {
 		this.tieuDe = tieuDe;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
-	}
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 }

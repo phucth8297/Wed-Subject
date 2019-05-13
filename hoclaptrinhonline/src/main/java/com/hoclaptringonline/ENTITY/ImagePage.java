@@ -15,7 +15,7 @@ public class ImagePage implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private ImagePagePK idPK;
+	private ImagePagePK id;
 
 	private int id;
 
@@ -25,21 +25,15 @@ public class ImagePage implements Serializable {
 	@Column(name="\"TieuDe\"")
 	private String tieuDe;
 
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
 	public ImagePage() {
 	}
 
-	public ImagePagePK idPK() {
-		return this.idPK;
+	public ImagePagePK getId() {
+		return this.id;
 	}
 
-	public void setIdPK(ImagePagePK idPK) {
-		this.idPK = idPK;
+	public void setId(ImagePagePK id) {
+		this.id = id;
 	}
 
 	public int getId() {
@@ -64,14 +58,6 @@ public class ImagePage implements Serializable {
 
 	public void setTieuDe(String tieuDe) {
 		this.tieuDe = tieuDe;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
 	}
 
 }

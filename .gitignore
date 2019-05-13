@@ -26,3 +26,4 @@ hs_err_pid*
 RemoteSystemsTempFiles/.project
 hoclaptrinhonline/.settings/org.eclipse.ltk.core.refactoring.prefs
 hoclaptrinhonline/.settings/org.eclipse.jpt.entitygen.data.dbo
+Servers/.settings/org.eclipse.wst.server.core.prefs

@@ -20,18 +20,6 @@ public class UserPermission implements Serializable {
 	@Column(name="\"Allow\"")
 	private boolean allow;
 
-	//bi-directional many-to-one association to Permission
-	@ManyToOne
-	@JoinColumns({
-		})
-	private Permission permission;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumns({
-		})
-	private User user;
-
 	public UserPermission() {
 	}
 
@@ -49,22 +37,6 @@ public class UserPermission implements Serializable {
 
 	public void setAllow(boolean allow) {
 		this.allow = allow;
-	}
-
-	public Permission getPermission() {
-		return this.permission;
-	}
-
-	public void setPermission(Permission permission) {
-		this.permission = permission;
-	}
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 }

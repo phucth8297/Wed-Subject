@@ -2,7 +2,6 @@ package com.hoclaptringonline.ENTITY;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -21,10 +20,6 @@ public class QuocTich implements Serializable {
 	@Column(name="\"TenQuocGia\"")
 	private String tenQuocGia;
 
-	//bi-directional many-to-one association to HenKhamBenh
-	@OneToMany(mappedBy="quocTich")
-	private List<HenKhamBenh> henKhamBenhs;
-
 	public QuocTich() {
 	}
 
@@ -42,28 +37,6 @@ public class QuocTich implements Serializable {
 
 	public void setTenQuocGia(String tenQuocGia) {
 		this.tenQuocGia = tenQuocGia;
-	}
-
-	public List<HenKhamBenh> getHenKhamBenhs() {
-		return this.henKhamBenhs;
-	}
-
-	public void setHenKhamBenhs(List<HenKhamBenh> henKhamBenhs) {
-		this.henKhamBenhs = henKhamBenhs;
-	}
-
-	public HenKhamBenh addHenKhamBenh(HenKhamBenh henKhamBenh) {
-		getHenKhamBenhs().add(henKhamBenh);
-		henKhamBenh.setQuocTich(this);
-
-		return henKhamBenh;
-	}
-
-	public HenKhamBenh removeHenKhamBenh(HenKhamBenh henKhamBenh) {
-		getHenKhamBenhs().remove(henKhamBenh);
-		henKhamBenh.setQuocTich(null);
-
-		return henKhamBenh;
 	}
 
 }

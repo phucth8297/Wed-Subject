@@ -20,21 +20,12 @@ public class Message implements Serializable {
 	@Column(name="\"Description\"")
 	private String description;
 
-	@Column(name="\"FK_NgonNgu\"")
-	private int FK_NgonNgu;
-
 	@Column(name="\"Keyword\"")
 	private String keyword;
 
 	@Lob
 	@Column(name="\"NoiDung\"")
 	private String noiDung;
-
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
 
 	public Message() {
 	}
@@ -55,14 +46,6 @@ public class Message implements Serializable {
 		this.description = description;
 	}
 
-	public int getFK_NgonNgu() {
-		return this.FK_NgonNgu;
-	}
-
-	public void setFK_NgonNgu(int FK_NgonNgu) {
-		this.FK_NgonNgu = FK_NgonNgu;
-	}
-
 	public String getKeyword() {
 		return this.keyword;
 	}
@@ -77,14 +60,6 @@ public class Message implements Serializable {
 
 	public void setNoiDung(String noiDung) {
 		this.noiDung = noiDung;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
 	}
 
 }

@@ -23,18 +23,6 @@ public class LichKham implements Serializable {
 	@Column(name="\"Sang\"")
 	private String sang;
 
-	//bi-directional many-to-one association to LichNgay
-	@ManyToOne
-	@JoinColumns({
-		})
-	private LichNgay lichNgay;
-
-	//bi-directional many-to-one association to PhongKham
-	@ManyToOne
-	@JoinColumns({
-		})
-	private PhongKham phongKham;
-
 	public LichKham() {
 	}
 
@@ -60,22 +48,6 @@ public class LichKham implements Serializable {
 
 	public void setSang(String sang) {
 		this.sang = sang;
-	}
-
-	public LichNgay getLichNgay() {
-		return this.lichNgay;
-	}
-
-	public void setLichNgay(LichNgay lichNgay) {
-		this.lichNgay = lichNgay;
-	}
-
-	public PhongKham getPhongKham() {
-		return this.phongKham;
-	}
-
-	public void setPhongKham(PhongKham phongKham) {
-		this.phongKham = phongKham;
 	}
 
 }

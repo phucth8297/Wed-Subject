@@ -18,12 +18,6 @@ public class Event implements Serializable {
 	@Id
 	private int id;
 
-	@Column(name="\"FK_NgonNgu\"")
-	private int FK_NgonNgu;
-
-	@Column(name="\"FK_UserTao\"")
-	private String FK_UserTao;
-
 	@Column(name="\"GioiThieu\"")
 	private String gioiThieu;
 
@@ -44,18 +38,6 @@ public class Event implements Serializable {
 	@Column(name="\"TieuDe\"")
 	private String tieuDe;
 
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumns({
-		})
-	private User user;
-
 	public Event() {
 	}
 
@@ -65,22 +47,6 @@ public class Event implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getFK_NgonNgu() {
-		return this.FK_NgonNgu;
-	}
-
-	public void setFK_NgonNgu(int FK_NgonNgu) {
-		this.FK_NgonNgu = FK_NgonNgu;
-	}
-
-	public String getFK_UserTao() {
-		return this.FK_UserTao;
-	}
-
-	public void setFK_UserTao(String FK_UserTao) {
-		this.FK_UserTao = FK_UserTao;
 	}
 
 	public String getGioiThieu() {
@@ -137,22 +103,6 @@ public class Event implements Serializable {
 
 	public void setTieuDe(String tieuDe) {
 		this.tieuDe = tieuDe;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
-	}
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 }

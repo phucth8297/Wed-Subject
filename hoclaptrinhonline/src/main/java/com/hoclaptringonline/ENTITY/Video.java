@@ -21,9 +21,6 @@ public class Video implements Serializable {
 	@Column(name="\"DuongDanFile\"")
 	private String duongDanFile;
 
-	@Column(name="\"FK_NgonNgu\"")
-	private int FK_NgonNgu;
-
 	@Column(name="\"GioiThieu\"")
 	private String gioiThieu;
 
@@ -56,12 +53,6 @@ public class Video implements Serializable {
 	@Column(name="\"UserNguoiSua\"")
 	private String userNguoiSua;
 
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
 	public Video() {
 	}
 
@@ -79,14 +70,6 @@ public class Video implements Serializable {
 
 	public void setDuongDanFile(String duongDanFile) {
 		this.duongDanFile = duongDanFile;
-	}
-
-	public int getFK_NgonNgu() {
-		return this.FK_NgonNgu;
-	}
-
-	public void setFK_NgonNgu(int FK_NgonNgu) {
-		this.FK_NgonNgu = FK_NgonNgu;
 	}
 
 	public String getGioiThieu() {
@@ -175,14 +158,6 @@ public class Video implements Serializable {
 
 	public void setUserNguoiSua(String userNguoiSua) {
 		this.userNguoiSua = userNguoiSua;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
 	}
 
 }

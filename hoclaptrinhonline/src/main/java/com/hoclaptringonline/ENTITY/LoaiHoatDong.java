@@ -2,7 +2,6 @@ package com.hoclaptringonline.ENTITY;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -21,10 +20,6 @@ public class LoaiHoatDong implements Serializable {
 	@Column(name="\"TenLoai\"")
 	private String tenLoai;
 
-	//bi-directional many-to-one association to HoatDong
-	@OneToMany(mappedBy="loaiHoatDong")
-	private List<HoatDong> hoatDongs;
-
 	public LoaiHoatDong() {
 	}
 
@@ -42,28 +37,6 @@ public class LoaiHoatDong implements Serializable {
 
 	public void setTenLoai(String tenLoai) {
 		this.tenLoai = tenLoai;
-	}
-
-	public List<HoatDong> getHoatDongs() {
-		return this.hoatDongs;
-	}
-
-	public void setHoatDongs(List<HoatDong> hoatDongs) {
-		this.hoatDongs = hoatDongs;
-	}
-
-	public HoatDong addHoatDong(HoatDong hoatDong) {
-		getHoatDongs().add(hoatDong);
-		hoatDong.setLoaiHoatDong(this);
-
-		return hoatDong;
-	}
-
-	public HoatDong removeHoatDong(HoatDong hoatDong) {
-		getHoatDongs().remove(hoatDong);
-		hoatDong.setLoaiHoatDong(null);
-
-		return hoatDong;
 	}
 
 }

@@ -16,10 +16,7 @@ public class NoiDungTinhChiTiet implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@EmbeddedId
-	private NoiDungTinhChiTietPK idPK;
-
-	@Column(name="\"FK_UserChinhsua\"")
-	private String FK_UserChinhsua;
+	private NoiDungTinhChiTietPK id;
 
 	@Column(name="\"GioiThieu\"")
 	private String gioiThieu;
@@ -42,41 +39,15 @@ public class NoiDungTinhChiTiet implements Serializable {
 	@Column(name="\"TieuDe\"")
 	private String tieuDe;
 
-	//bi-directional many-to-one association to NgonNgu
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NgonNgu ngonNgu;
-
-	//bi-directional many-to-one association to NoiDungTinh
-	@ManyToOne
-	@JoinColumns({
-		})
-	private NoiDungTinh noiDungTinh;
-
-	//bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumns({
-		})
-	private User user;
-
 	public NoiDungTinhChiTiet() {
 	}
 
-	public NoiDungTinhChiTietPK getIdPK() {
-		return this.idPK;
+	public NoiDungTinhChiTietPK getId() {
+		return this.id;
 	}
 
-	public void setIdPK(NoiDungTinhChiTietPK idPK) {
-		this.idPK = idPK;
-	}
-
-	public String getFK_UserChinhsua() {
-		return this.FK_UserChinhsua;
-	}
-
-	public void setFK_UserChinhsua(String FK_UserChinhsua) {
-		this.FK_UserChinhsua = FK_UserChinhsua;
+	public void setId(NoiDungTinhChiTietPK id) {
+		this.id = id;
 	}
 
 	public String getGioiThieu() {
@@ -133,30 +104,6 @@ public class NoiDungTinhChiTiet implements Serializable {
 
 	public void setTieuDe(String tieuDe) {
 		this.tieuDe = tieuDe;
-	}
-
-	public NgonNgu getNgonNgu() {
-		return this.ngonNgu;
-	}
-
-	public void setNgonNgu(NgonNgu ngonNgu) {
-		this.ngonNgu = ngonNgu;
-	}
-
-	public NoiDungTinh getNoiDungTinh() {
-		return this.noiDungTinh;
-	}
-
-	public void setNoiDungTinh(NoiDungTinh noiDungTinh) {
-		this.noiDungTinh = noiDungTinh;
-	}
-
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 }

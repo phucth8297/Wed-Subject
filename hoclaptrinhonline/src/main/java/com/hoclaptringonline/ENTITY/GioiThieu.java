@@ -2,7 +2,6 @@ package com.hoclaptringonline.ENTITY;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -21,10 +20,6 @@ public class GioiThieu implements Serializable {
 	@Column(name="\"TenGioiThieu\"")
 	private String tenGioiThieu;
 
-	//bi-directional many-to-one association to GioiThieuChiTiet
-	@OneToMany(mappedBy="gioiThieuBean")
-	private List<GioiThieuChiTiet> gioiThieuChiTiets;
-
 	public GioiThieu() {
 	}
 
@@ -42,28 +37,6 @@ public class GioiThieu implements Serializable {
 
 	public void setTenGioiThieu(String tenGioiThieu) {
 		this.tenGioiThieu = tenGioiThieu;
-	}
-
-	public List<GioiThieuChiTiet> getGioiThieuChiTiets() {
-		return this.gioiThieuChiTiets;
-	}
-
-	public void setGioiThieuChiTiets(List<GioiThieuChiTiet> gioiThieuChiTiets) {
-		this.gioiThieuChiTiets = gioiThieuChiTiets;
-	}
-
-	public GioiThieuChiTiet addGioiThieuChiTiet(GioiThieuChiTiet gioiThieuChiTiet) {
-		getGioiThieuChiTiets().add(gioiThieuChiTiet);
-		gioiThieuChiTiet.setGioiThieuBean(this);
-
-		return gioiThieuChiTiet;
-	}
-
-	public GioiThieuChiTiet removeGioiThieuChiTiet(GioiThieuChiTiet gioiThieuChiTiet) {
-		getGioiThieuChiTiets().remove(gioiThieuChiTiet);
-		gioiThieuChiTiet.setGioiThieuBean(null);
-
-		return gioiThieuChiTiet;
 	}
 
 }

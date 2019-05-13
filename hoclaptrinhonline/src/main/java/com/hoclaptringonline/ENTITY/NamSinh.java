@@ -2,7 +2,6 @@ package com.hoclaptringonline.ENTITY;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -21,14 +20,6 @@ public class NamSinh implements Serializable {
 	@Column(name="\"Nam\"")
 	private int nam;
 
-	//bi-directional many-to-one association to HenKhamBenh
-	@OneToMany(mappedBy="namSinh")
-	private List<HenKhamBenh> henKhamBenhs;
-
-	//bi-directional many-to-one association to HoiDapYKhoa
-	@OneToMany(mappedBy="namSinh")
-	private List<HoiDapYKhoa> hoiDapYkhoas;
-
 	public NamSinh() {
 	}
 
@@ -46,50 +37,6 @@ public class NamSinh implements Serializable {
 
 	public void setNam(int nam) {
 		this.nam = nam;
-	}
-
-	public List<HenKhamBenh> getHenKhamBenhs() {
-		return this.henKhamBenhs;
-	}
-
-	public void setHenKhamBenhs(List<HenKhamBenh> henKhamBenhs) {
-		this.henKhamBenhs = henKhamBenhs;
-	}
-
-	public HenKhamBenh addHenKhamBenh(HenKhamBenh henKhamBenh) {
-		getHenKhamBenhs().add(henKhamBenh);
-		henKhamBenh.setNamSinh(this);
-
-		return henKhamBenh;
-	}
-
-	public HenKhamBenh removeHenKhamBenh(HenKhamBenh henKhamBenh) {
-		getHenKhamBenhs().remove(henKhamBenh);
-		henKhamBenh.setNamSinh(null);
-
-		return henKhamBenh;
-	}
-
-	public List<HoiDapYKhoa> getHoiDapYkhoas() {
-		return this.hoiDapYkhoas;
-	}
-
-	public void setHoiDapYkhoas(List<HoiDapYKhoa> hoiDapYkhoas) {
-		this.hoiDapYkhoas = hoiDapYkhoas;
-	}
-
-	public HoiDapYKhoa addHoiDapYkhoa(HoiDapYKhoa hoiDapYkhoa) {
-		getHoiDapYkhoas().add(hoiDapYkhoa);
-		hoiDapYkhoa.setNamSinh(this);
-
-		return hoiDapYkhoa;
-	}
-
-	public HoiDapYKhoa removeHoiDapYkhoa(HoiDapYKhoa hoiDapYkhoa) {
-		getHoiDapYkhoas().remove(hoiDapYkhoa);
-		hoiDapYkhoa.setNamSinh(null);
-
-		return hoiDapYkhoa;
 	}
 
 }
