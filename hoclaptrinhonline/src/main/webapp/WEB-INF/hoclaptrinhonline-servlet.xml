@@ -13,16 +13,14 @@
 	<!-- location nếu để trống sẽ bắt đầu từ webapp
 	mapping đường dẫn, ** đại diện cho file với đuôi bất kì	
 	phải có annotation-driven -->
+	<mvc:default-servlet-handler/>
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 	<mvc:annotation-driven enable-matrix-variables="true"></mvc:annotation-driven>
-	<context:component-scan base-package="com.hoclaptrinhonline"></context:component-scan>
-	<context:component-scan base-package="com.hoclaptrinhonline.DAO"></context:component-scan>
-	<context:component-scan base-package="com.hoclaptrinhonline.entity"></context:component-scan>
-	<context:component-scan base-package="com.hoclaptrinhonline.Imp"></context:component-scan>
-	<context:component-scan base-package="com.hoclaptrinhonline.service"></context:component-scan>
-	<context:component-scan base-package="taglib"></context:component-scan>
-	<context:component-scan base-package="config"></context:component-scan>
-	<context:component-scan base-package="util"></context:component-scan>
+	<context:component-scan base-package="com.benhvien.dao"></context:component-scan>
+	<context:component-scan base-package="com.hoclaptrinhonline.ENTITY"></context:component-scan>
+	<context:component-scan base-package="com.benhvien.interfaces"></context:component-scan>
+	<context:component-scan base-package="com.benhvien.controller"></context:component-scan>
+	
 	
 	<import resource="classpath:IoC.xml"/>
 
